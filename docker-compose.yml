@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   samba:
+    container_name: Samba
     image: dperson/samba
     environment:
       TZ: 'EST5EDT'
