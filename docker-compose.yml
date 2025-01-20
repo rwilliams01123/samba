@@ -5,8 +5,6 @@ services:
     image: dperson/samba
     environment:
       TZ: 'EST5EDT'
-    networks:
-      - default
     ports:
       - "137:137/udp"
       - "138:138/udp"
@@ -19,9 +17,13 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /mnt:/mnt:z
-      - /mnt2:/mnt2:z
-    command: '-s "Mount;/mnt" -s "Bobs Volume;/mnt2;yes;no;no;bob" -u "bob;bobspasswd" -p'
+      - /mnt/test:/mnt:z
+    command: '-s "Mount;/mnt"'
+    networks:
+      macvlan_network:
+        ipv4_address: 100.64.0.4
 
 networks:
-  default:
+  macvlan_network:
+    external:
+      name: mynet
