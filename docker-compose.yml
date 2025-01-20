@@ -6,8 +6,8 @@ services:
     image: dperson/samba
     environment:
       TZ: 'EST5EDT'
-      USERID: $(id -u ${USER})
-      GROUPID: $(id -g ${USER})
+      USERID: id -u ${USER}
+      GROUPID: id -g ${USER}
     ports:
       - "137:137/udp"
       - "138:138/udp"
