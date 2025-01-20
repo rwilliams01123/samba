@@ -10,7 +10,7 @@ services:
       - "138:138/udp"
       - "139:139/tcp"
       - "445:445/tcp"
-    read_only: true
+    read_only: false
     tmpfs:
       - /tmp
     restart: unless-stopped
