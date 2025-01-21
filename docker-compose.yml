@@ -22,7 +22,7 @@ services:
     tty: true
     volumes:
       - ~/mount/backups:/mnt
-    command: '-s "backups;/mnt;yes;no;no;all;none;${USER}"'
+    command: '-s "backups;/mnt;no;no;no;robert;all;${USER}"'
     networks:
       macvlan_network:
         ipv4_address: 100.64.0.4
