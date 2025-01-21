@@ -5,15 +5,15 @@ services:
     container_name: Samba
     image: dperson/samba
     environment:
-      TZ: 'EST5EDT'
+      TZ: "America/New_York"
       USERID: id -u ${USER}
       GROUPID: id -g ${USER}
-      USER: "user;pass"
-    ports:
-      - "137:137/udp"
-      - "138:138/udp"
-      - "139:139/tcp"
-      - "445:445/tcp"
+      USER: "robert;uscrules1"
+    #ports:
+      #- "137:137/udp"
+      #- "138:138/udp"
+      #- "139:139/tcp"
+      #- "445:445/tcp"
     read_only: false
     tmpfs:
       - /tmp
@@ -21,8 +21,8 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /mnt/test:/mnt
-    command: '-s "test_mount;/mnt;yes;no;no;all;none;${USER}"'
+      - ~/mount/backups:/mnt
+    command: '-s "backups;/mnt;yes;no;no;all;none;${USER}"'
     networks:
       macvlan_network:
         ipv4_address: 100.64.0.4
