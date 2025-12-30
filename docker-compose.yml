@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   samba:
-    container_name: Samba
+    container_name: samba
     image: dperson/samba
     environment:
       TZ: "America/New_York"
@@ -21,8 +21,8 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ~/mount/backups:/mnt
-    command: '-s "backups;/mnt;no;no;no;robert;all;${USER}"'
+      - ~/mount/test_drive:/mnt
+    command: '-s "test_drive;/mnt;yes;no;no;robert;all;${USER}"'
     networks:
       macvlan_network:
         ipv4_address: 100.64.0.4
